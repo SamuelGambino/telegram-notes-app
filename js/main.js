@@ -7,6 +7,7 @@ const bindEvents = () => {
   el.menuBtn.addEventListener('click', toggleMenu);
   el.menuBack.addEventListener('click', closeMenu);
   el.newNote.addEventListener('click', () => {
+    navigate('editor')
     createNote();
     closeMenu();
   });

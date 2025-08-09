@@ -95,9 +95,11 @@ const navigate = (page) => {
     if (page === 'about') {
         el.pageAbout.hidden = false;
         el.pageNote.hidden = true;
+        el.saveBtn.disabled = true;
     } else {
         el.pageAbout.hidden = true;
         el.pageNote.hidden = false;
+        el.saveBtn.disabled = false;
     }
 }
 

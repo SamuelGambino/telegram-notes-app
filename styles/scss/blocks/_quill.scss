@@ -26,12 +26,7 @@
     overflow-x: auto;
     text-wrap: nowrap;
     flex-wrap: nowrap;
-    -ms-overflow-style: none;  /* IE и Edge */
-    scrollbar-width: none;     /* Firefox */
-
-    &::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-    }
+    padding-bottom: 10px;
 }
 
 .ql-form-block {

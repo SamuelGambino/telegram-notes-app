@@ -28,6 +28,12 @@
             &:active {
                 opacity: .8;
             }
+
+            &:disabled {
+                pointer-events: none;
+                cursor: not-allowed; 
+                opacity: 0.6;
+            }
         }
 
         &--menu {
