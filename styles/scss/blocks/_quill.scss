@@ -1,0 +1,40 @@
+.ql-toolbar {
+    &.ql-snow {
+        border: 1px solid $color-transport-black-40 !important;
+
+        & + .ql-container.ql-snow {
+            border-top: 0 !important;
+        }
+
+        & .ql-formats {
+            display: flex;
+            justify-content: space-evenly;
+            margin-right: 0 !important;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.ql-container {
+    &.ql-snow {
+        border: 1px solid $color-transport-black-40 !important;
+    }
+}
+
+.ql-horizontal {
+    display: flex;
+    overflow-x: auto;
+    text-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-overflow-style: none;  /* IE и Edge */
+    scrollbar-width: none;     /* Firefox */
+
+    &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+}
+
+.ql-form-block {
+    display: flex;
+    margin-right: 15px;
+}

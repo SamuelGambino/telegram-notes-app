@@ -1,0 +1,19 @@
+/* Global */
+/* ------------------------------------ */
+@import 'global/_container.scss';
+@import 'global/_normalize.scss';
+@import 'global/_variables.scss';
+@import 'global/_reboot.scss';
+@import 'global/_visually-hidden.scss';
+@import 'global/_fonts.scss';
+
+/* Blocks */
+/* ------------------------------------ */
+
+@import 'blocks/_header.scss';
+@import 'blocks/_note.scss';
+@import 'blocks/_footer.scss';
+@import 'blocks/_about.scss';
+@import 'blocks/_menu.scss';
+@import 'blocks/_quill.scss';
+@import 'blocks/_popup.scss';

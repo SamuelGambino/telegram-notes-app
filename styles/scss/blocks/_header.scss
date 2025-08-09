@@ -1,0 +1,51 @@
+.header {
+    position: sticky;
+    top: 0;
+    background-color: $color-pearl-white;
+    border-bottom: 1px solid $color-transport-black-40;
+    padding: 12px 0;
+    z-index: 1;
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        color: $color-pearl-white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: $radius-s;
+        height: 34px;
+
+        &--save {
+            background-color: $color-green-seduction;
+
+            &:active {
+                opacity: .8;
+            }
+        }
+
+        &--menu {
+            background-color: $color-transport-black;
+
+            &:active {
+                opacity: .8;
+            }
+        }
+    }
+
+    &__logo-link {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__icon {
+        fill: $color-pearl-white;
+        color: $color-pearl-white;
+    }
+}

@@ -1,0 +1,21 @@
+.footer {
+    padding-bottom: 20px;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-text {
+            font-weight: 400;
+            font-size: 12px;
+            color: $color-grey-squirrel;
+        }
+
+        &-link {
+            font-weight: 400;
+            font-size: 12px;
+            color: $color-grey-squirrel;
+        }
+    }
+}

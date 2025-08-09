@@ -1,0 +1,20 @@
+.popup {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    background-color: $color-green-seduction;
+    color: white;
+    padding: 10px 15px;
+    border-radius: $radius-l;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+    transform: .2s ease;
+    z-index: 4;
+
+    &--show {
+        opacity: 1;
+        transform: translate(-50%, -4px);
+    }
+}
