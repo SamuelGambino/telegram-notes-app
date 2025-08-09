@@ -7,8 +7,7 @@ const initQuill = () => {
     const q = new Quill("#editor", {
         theme: "snow",
         placeholder: "Новая заметка...",
-        modules: { toolbar: "#toolbar" },
-        syntax: true,
+        modules: { toolbar: "#toolbar", syntax: true },
     });
     state.quill = q;
 

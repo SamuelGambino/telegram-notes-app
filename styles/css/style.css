@@ -622,6 +622,12 @@ a {
   margin-right: 15px;
 }
 
+.ql-ui {
+  background-color: var(--tg-theme-bg-color, #F4F4EA);
+  color: var(--tg-theme-text-color, #1F1E1F);
+  border-radius: 10px;
+}
+
 .popup {
   position: fixed;
   left: 50%;
