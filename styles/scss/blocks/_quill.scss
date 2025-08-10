@@ -35,7 +35,21 @@
 }
 
 .ql-ui {
-    background-color: $color-pearl-white;
-    color: $color-transport-black;
+    background-color: $color-pearl-white !important;
+    color: $color-transport-black !important;
     border-radius: $radius-s;
+}
+
+.ql-snow {
+    & .ql-fill {
+        fill: $color-transport-black !important;
+    }
+    
+    & .ql-stroke {
+        stroke: $color-transport-black !important;
+    }
+
+    & .ql-picker {
+        color: $color-transport-black !important;
+    }    
 }

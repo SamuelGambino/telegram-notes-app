@@ -623,9 +623,19 @@ a {
 }
 
 .ql-ui {
-  background-color: var(--tg-theme-bg-color, #F4F4EA);
-  color: var(--tg-theme-text-color, #1F1E1F);
+  background-color: var(--tg-theme-bg-color, #F4F4EA) !important;
+  color: var(--tg-theme-text-color, #1F1E1F) !important;
   border-radius: 10px;
+}
+
+.ql-snow .ql-fill {
+  fill: var(--tg-theme-text-color, #1F1E1F) !important;
+}
+.ql-snow .ql-stroke {
+  stroke: var(--tg-theme-text-color, #1F1E1F) !important;
+}
+.ql-snow .ql-picker {
+  color: var(--tg-theme-text-color, #1F1E1F) !important;
 }
 
 .popup {
