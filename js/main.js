@@ -11,6 +11,11 @@ const bindEvents = () => {
     createNote();
     closeMenu();
   });
+  el.newTask.addEventListener('click', () => {
+    navigate('task');
+    createNote('task');
+    closeMenu();
+  })
   el.aboutBtn.addEventListener('click', () => {
     navigate('about');
     closeMenu();

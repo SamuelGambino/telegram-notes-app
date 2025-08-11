@@ -9,6 +9,7 @@
     <!-- Quill.js library -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.bubble.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
     <!-- Fonts for editor -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&family=Montserrat&family=Courier+Prime&display=swap" rel="stylesheet">
@@ -44,7 +45,10 @@
     <aside class="menu" id="menu" aria-expanded="true">
         <h2 class="menu__title">Menu</h2>
         <nav class="menu__nav" role="navigation">
-            <button class="menu__note-btn menu__note-btn--new" id="newNote" type="button">New note</button>
+            <div class="menu__nav-btns">
+                <button class="menu__note-btn menu__note-btn--new" id="newNote" type="button">New note</button>
+                <button class="menu__note-btn menu__note-btn--new" id="newTask" type="button">New task</button>
+            </div>            
             <ul class="menu__list" id="notesList" aria-live="polite">
             </ul>
         </nav>
@@ -99,8 +103,30 @@
                     <button class="ql-clean"></button>
                 </div> 
             </div>
-            <div id="editor" class="note__editor">
+            <div id="editorSnow" class="note__editor">
             </div>
+        </div>
+    </div>
+    <div class="task" id="pageTask" hidden>
+        <div class="container">
+            <div class="task__editor">
+                <div class="task__title task__title--main task__quill"></div>
+                <ul class="task__list" id="taskList">
+                    <li class="task__list-item">
+                        <div class="task__content">
+                            <input class="task__checkbox" type="checkbox">
+                            <div class="task__title task__title--task task__quill"></div>
+                            <button class="task__btn task__btn--down">
+                                <svg class="task__icon" width="24" height="24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="task__description task__quill"></div>
+                    </li>
+                </ul> 
+                <button type="button" class="task__btn task__btn--add" id="addTaskBtn">Add task</button>
+            </div>           
         </div>
     </div>
     <section class="about" id="pageAbout" hidden>

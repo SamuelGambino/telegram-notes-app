@@ -33,6 +33,12 @@
     &__nav {
         overflow: auto;
         -webkit-overflow-scrolling: touch;
+
+        &-btns {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
     }
 
     &__note {
@@ -47,8 +53,7 @@
 
             &--new {
                 background-color: $color-green-seduction;
-                color: white;
-                margin-bottom: 10px;
+                color: $color-pearl-white;
             }
 
             &--about {
@@ -60,7 +65,7 @@
                 top: 5px;
                 right: 5px;
                 background-color: $color-sparkling-red;
-                color: white;
+                color: $color-pearl-white;
                 border: 0;
                 border-radius: $radius-l;
                 padding: 5px 10px;

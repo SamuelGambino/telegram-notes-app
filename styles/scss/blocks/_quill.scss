@@ -1,6 +1,7 @@
 .ql-toolbar {
     &.ql-snow {
         border: 1px solid $color-transport-black-40 !important;
+        border-radius: $radius-l $radius-l 0 0 !important;
 
         & + .ql-container.ql-snow {
             border-top: 0 !important;
@@ -18,6 +19,7 @@
 .ql-container {
     &.ql-snow {
         border: 1px solid $color-transport-black-40 !important;
+        border-radius: 0 0 $radius-l $radius-l !important;
     }
 }
 

@@ -8,6 +8,8 @@ const state = {
     notes: [],
     currentId: null,
     quill: null,
+    taskQuill: null,
+    currentType: null,
 };
 
 const loadState = () => {
@@ -17,6 +19,7 @@ const loadState = () => {
         if (Array.isArray(data.notes)) {
             state.notes = data.notes;
             state.currentId = data.currentId || null;
+            state.currentType = data.currentType || null;
         };
     } catch (e) {
         console.warn('Ошибка при загрузке данных', e)
@@ -25,7 +28,7 @@ const loadState = () => {
 
 const saveState = () => {
     try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({notes: state.notes, currentId: state.currentId}));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({notes: state.notes, currentType: state.currentType, currentId: state.currentId}));
     } catch (e) {
         console.warn('Ошибка при сохранении данных', e);
     }

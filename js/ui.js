@@ -8,14 +8,17 @@ let popupTimer = null;
 const el = {
     menuBtn: document.querySelector('#menuBtn'),
     saveBtn: document.querySelector('#saveBtn'),
-    menu: document.querySelector('#menu'),
-    newNote: document.querySelector('#newNote'),
-    notesList: document.querySelector('#notesList'),
     aboutBtn: document.querySelector('#aboutBtn'),
+    addTaskBtn: document.querySelector('#addTaskBtn'),
+    newNote: document.querySelector('#newNote'),
+    newTask: document.querySelector('#newTask'),
+    menuBack: document.querySelector('#menuBack'),
+    menu: document.querySelector('#menu'),
+    notesList: document.querySelector('#notesList'),
     pageNote: document.querySelector('#pageNote'),
     pageAbout: document.querySelector('#pageAbout'),
-    popup: document.querySelector('#popup'),
-    menuBack: document.querySelector('#menuBack')
+    pageTask: document.querySelector('#pageTask'),
+    popup: document.querySelector('#popup')
 }
 
 const openMenu = () => {
@@ -54,8 +57,12 @@ const renderMenuList = () => {
         
 
         li.addEventListener('click', () => {
-            navigate('editor');
-            loadNoteInEditor(note.id);
+            if (note.type === 'task') {
+                navigate('task');
+            } else {
+                navigate('editor');
+            }
+            loadNoteInEditor(note.id, note.type);
             closeMenu();
         });
 
@@ -94,11 +101,19 @@ const holdNoteToRemove = (target, onLongPress, durationMs = 500) => { // Фун�
 const navigate = (page) => {
     if (page === 'about') {
         el.pageAbout.hidden = false;
+        el.pageTask.hidden = true;
+        el.pageNote.hidden = true;
+        el.saveBtn.disabled = true;
+        tg.MainButton.hide();
+    } else if (page === 'task') {
+        el.pageAbout.hidden = true;
+        el.pageTask.hidden = false;
         el.pageNote.hidden = true;
         el.saveBtn.disabled = true;
         tg.MainButton.hide();
     } else {
         el.pageAbout.hidden = true;
+        el.pageTask.hidden = true;
         el.pageNote.hidden = false;
         el.saveBtn.disabled = false;
         tg.MainButton.show();

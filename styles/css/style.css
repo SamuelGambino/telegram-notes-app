@@ -523,6 +523,11 @@ a {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
+.menu__nav-btns {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 .menu__note-btn {
   width: 100%;
   text-align: left;
@@ -534,8 +539,7 @@ a {
 }
 .menu__note-btn--new {
   background-color: var(--tg-theme-button-color, #41ad38);
-  color: white;
-  margin-bottom: 10px;
+  color: var(--tg-theme-bg-color, #F4F4EA);
 }
 .menu__note-btn--about {
   border: 1px solid rgba(0, 0, 0, 0.4);
@@ -545,7 +549,7 @@ a {
   top: 5px;
   right: 5px;
   background-color: #ec3131;
-  color: white;
+  color: var(--tg-theme-bg-color, #F4F4EA);
   border: 0;
   border-radius: 16px;
   padding: 5px 10px;
@@ -594,6 +598,7 @@ a {
 
 .ql-toolbar.ql-snow {
   border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  border-radius: 16px 16px 0 0 !important;
 }
 .ql-toolbar.ql-snow + .ql-container.ql-snow {
   border-top: 0 !important;
@@ -607,6 +612,7 @@ a {
 
 .ql-container.ql-snow {
   border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  border-radius: 0 0 16px 16px !important;
 }
 
 .ql-horizontal {
@@ -659,4 +665,78 @@ a {
 .popup--show {
   opacity: 1;
   transform: translate(-50%, -4px);
+}
+
+.task {
+  padding: 20px 0;
+}
+.task__editor {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+}
+.task__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: none;
+  padding: 10px;
+  list-style: none;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+.task__list-item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+.task__list-item:last-child {
+  border: none;
+}
+.task__content {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+.task__title {
+  width: 100%;
+}
+.task__title--main {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+.task__title--task {
+  display: flex;
+  justify-self: center;
+  max-width: 250px;
+}
+.task__btn {
+  display: flex;
+  border: none;
+}
+.task__btn--down {
+  color: rgba(0, 0, 0, 0.4);
+  background-color: transparent;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  flex-wrap: wrap;
+  align-content: center;
+  transition: transform 1s ease;
+}
+.task__btn--down-open {
+  transform: rotate(180deg);
+}
+.task__btn--add {
+  width: auto;
+  padding: 10px;
+  color: var(--tg-theme-bg-color, #F4F4EA);
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--tg-theme-button-color, #41ad38);
+  border-radius: 12px;
+}
+.task__description {
+  display: flex;
+  justify-self: center;
+  max-width: 320px;
 }/*# sourceMappingURL=style.css.map */
