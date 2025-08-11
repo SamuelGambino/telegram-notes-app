@@ -637,6 +637,9 @@ a {
 .ql-snow .ql-picker {
   color: var(--tg-theme-text-color, #1F1E1F) !important;
 }
+.ql-snow .ql-picker-options {
+  background-color: var(--tg-theme-bg-color, #F4F4EA) !important;
+}
 
 .popup {
   position: fixed;

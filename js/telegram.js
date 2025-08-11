@@ -31,6 +31,7 @@ const saveMainBtn = () => {
 }
 
 export {
+    tg,
     hapticImpact,
     saveMainBtn,
     initTelegram

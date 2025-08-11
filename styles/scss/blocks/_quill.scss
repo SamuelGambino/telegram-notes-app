@@ -51,5 +51,9 @@
 
     & .ql-picker {
         color: $color-transport-black !important;
+
+        &-options {
+            background-color: $color-pearl-white !important;
+        }
     }    
 }

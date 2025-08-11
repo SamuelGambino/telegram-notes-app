@@ -1,6 +1,6 @@
 import { state, deleteNote } from "./state.js";
 import { createHtmlElement } from "./components.js";
-import { hapticImpact } from "./telegram.js";
+import { hapticImpact, tg } from "./telegram.js";
 import { formatDateTime } from "./utils.js";
 import { loadNoteInEditor } from "./quill.js";
 let popupTimer = null;
@@ -96,10 +96,12 @@ const navigate = (page) => {
         el.pageAbout.hidden = false;
         el.pageNote.hidden = true;
         el.saveBtn.disabled = true;
+        tg.MainButton.hide();
     } else {
         el.pageAbout.hidden = true;
         el.pageNote.hidden = false;
         el.saveBtn.disabled = false;
+        tg.MainButton.show();
     }
 }
 
