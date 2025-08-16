@@ -1,5 +1,7 @@
 import { showPopup } from "./ui.js";
-import { saveEditorContent } from "./quill.js";
+import { saveNoteEditorContent } from "./noteManager.js";
+import { saveTaskEditorContent } from "./taskManager.js";
+import { state } from "./state.js";
 const tg = window.Telegram?.WebApp;
 
 const initTelegram = () => {
@@ -25,7 +27,8 @@ const hapticImpact = () => {
 };
 
 const saveMainBtn = () => {
-    saveEditorContent();
+    if (state.type === 'task') saveTaskEditorContent();
+    if (state.type === 'note') saveNoteEditorContent();
     hapticImpact();
     showPopup("Сохранено!");
 }

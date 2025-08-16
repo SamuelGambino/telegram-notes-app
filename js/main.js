@@ -1,19 +1,22 @@
-import { el, toggleMenu, closeMenu, navigate, renderMenuList } from "./ui.js"
-import { createNote, initQuill, loadNoteInEditor } from "./quill.js";
+import { el, toggleMenu, closeMenu, renderMenuList } from "./ui.js"
+import { initQuill } from "./quill.js";
+import { createNote, loadNoteInEditor } from "./noteManager.js";
+import { createTask, loadTaskInEditor } from "./taskManager.js";
 import { saveMainBtn, initTelegram } from "./telegram.js";
 import { loadState, state } from "./state.js";
+import { navigate } from "./navigate.js";
 
 const bindEvents = () => {
   el.menuBtn.addEventListener('click', toggleMenu);
   el.menuBack.addEventListener('click', closeMenu);
   el.newNote.addEventListener('click', () => {
-    navigate('editor')
+    navigate('note');
     createNote();
     closeMenu();
   });
   el.newTask.addEventListener('click', () => {
     navigate('task');
-    createNote('task');
+    createTask();
     closeMenu();
   })
   el.aboutBtn.addEventListener('click', () => {
@@ -25,12 +28,14 @@ const bindEvents = () => {
 
 const start = () => {
   loadState();
-  initQuill();
+  state.quill = initQuill('note');
+  state.taskQuill = initQuill('task');
   bindEvents();
   initTelegram();
 
   if (state.currentId) {
-    loadNoteInEditor(state.currentId);
+    if (state.type === 'note') loadNoteInEditor(state.currentId);
+    if (state.type === 'task') loadTaskInEditor(state.currentId);
   } else {
     createNote();
   }

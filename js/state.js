@@ -1,5 +1,6 @@
 import { renderMenuList, showPopup } from "./ui.js";
-import { createNote } from "./quill.js";
+import { createNote } from "./noteManager.js";
+import { createTask } from "./taskManager.js";
 
 
 const STORAGE_KEY = 'easy-notes';
@@ -34,11 +35,11 @@ const saveState = () => {
     }
 }
 
-const getNote = (id) => {
+const getData = (id) => {
     return state.notes.find((note) => note.id === id) || null;
 }
 
-const upsertNote = (note) => {
+const upsertData = (note) => {
     const resultId = state.notes.findIndex((n) => n.id === note.id);
     if (resultId >= 0) {
         state.notes[resultId] = note;
@@ -50,17 +51,18 @@ const upsertNote = (note) => {
     renderMenuList();
 }
 
-const deleteNote = (id) => {
+const deleteData = (id, type) => {
     const resultId = state.notes.findIndex((n) => n.id === id);
     if (resultId >= 0) {
         state.notes.splice(resultId, 1);
         if (state.currentId === id) {
             state.currentId = null;
-            createNote();
+            if(type === 'note') createNote();
+            if(type === 'task') createTask();
         }
         saveState();
         renderMenuList();
-        showPopup('Заметка удалена!')
+        showPopup('Запись удалена!')
     }
 }
 
@@ -68,7 +70,7 @@ export {
     state,
     loadState,
     saveState,
-    getNote,
-    upsertNote,
-    deleteNote
+    getData,
+    upsertData,
+    deleteData
 }

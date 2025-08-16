@@ -1,13 +1,14 @@
-import { state, deleteNote } from "./state.js";
+import { state, deleteData } from "./state.js";
 import { createHtmlElement } from "./components.js";
-import { hapticImpact, tg } from "./telegram.js";
+import { hapticImpact } from "./telegram.js";
 import { formatDateTime } from "./utils.js";
-import { loadNoteInEditor } from "./quill.js";
+import { loadNoteInEditor } from "./noteManager.js";
+import { navigate } from "./navigate.js";
+import { loadTaskInEditor } from "./taskManager.js";
 let popupTimer = null;
 
 const el = {
     menuBtn: document.querySelector('#menuBtn'),
-    saveBtn: document.querySelector('#saveBtn'),
     aboutBtn: document.querySelector('#aboutBtn'),
     addTaskBtn: document.querySelector('#addTaskBtn'),
     newNote: document.querySelector('#newNote'),
@@ -15,9 +16,6 @@ const el = {
     menuBack: document.querySelector('#menuBack'),
     menu: document.querySelector('#menu'),
     notesList: document.querySelector('#notesList'),
-    pageNote: document.querySelector('#pageNote'),
-    pageAbout: document.querySelector('#pageAbout'),
-    pageTask: document.querySelector('#pageTask'),
     popup: document.querySelector('#popup')
 }
 
@@ -59,10 +57,11 @@ const renderMenuList = () => {
         li.addEventListener('click', () => {
             if (note.type === 'task') {
                 navigate('task');
+                loadTaskInEditor(note.id)
             } else {
-                navigate('editor');
+                navigate('note');
+                loadNoteInEditor(note.id);
             }
-            loadNoteInEditor(note.id, note.type);
             closeMenu();
         });
 
@@ -74,7 +73,7 @@ const renderMenuList = () => {
         del.addEventListener('click', (e) => {
             e.stopPropagation();
             if (confirm('Удалить эту заметку?')) {
-                deleteNote(note.id);
+                deleteData(note.id, note.type);
             }
         });
 
@@ -98,28 +97,6 @@ const holdNoteToRemove = (target, onLongPress, durationMs = 500) => { // Фун�
     );
 }
 
-const navigate = (page) => {
-    if (page === 'about') {
-        el.pageAbout.hidden = false;
-        el.pageTask.hidden = true;
-        el.pageNote.hidden = true;
-        el.saveBtn.disabled = true;
-        tg.MainButton.hide();
-    } else if (page === 'task') {
-        el.pageAbout.hidden = true;
-        el.pageTask.hidden = false;
-        el.pageNote.hidden = true;
-        el.saveBtn.disabled = true;
-        tg.MainButton.hide();
-    } else {
-        el.pageAbout.hidden = true;
-        el.pageTask.hidden = true;
-        el.pageNote.hidden = false;
-        el.saveBtn.disabled = false;
-        tg.MainButton.show();
-    }
-}
-
 const showPopup = (text) => {
     el.popup.textContent = text;
     el.popup.classList.add('popup--show');
@@ -134,6 +111,5 @@ export {
     showPopup,
     toggleMenu,
     closeMenu,
-    renderMenuList,
-    navigate
+    renderMenuList
 }
